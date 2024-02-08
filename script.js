@@ -124,7 +124,7 @@ function registrar() {
 //TELEFONO 
 // Inicializa el campo de entrada del teléfono con intl-tel-input
 var phoneInputField = document.querySelector("#phone");
-if (phoneInputField) { // Asegúrate de que phoneInputField no es null
+if (phoneInputField) {
     var iti_1 = globalThis.intlTelInput(phoneInputField, {
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     });
