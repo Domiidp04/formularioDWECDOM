@@ -79,13 +79,23 @@ function validateForm() {
 //DARKMODE
 // Obtener el checkbox del dark mode
 var darkModeToggle = document.getElementById('darkModeToggle');
+// Obtener el formulario
+var form = document.querySelector('form');
 // Función para cambiar a dark mode
 function enableDarkMode() {
     document.body.classList.add('dark-mode');
+    if (form) {
+        form.classList.remove('bg-light');
+        form.classList.add('bg-dark');
+    }
 }
 // Función para cambiar a light mode
 function disableDarkMode() {
     document.body.classList.remove('dark-mode');
+    if (form) {
+        form.classList.remove('bg-dark');
+        form.classList.add('bg-light');
+    }
 }
 // Event listener para el cambio de estado del checkbox
 darkModeToggle.addEventListener('change', function () {

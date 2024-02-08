@@ -39,7 +39,7 @@
    
   /* Cambiamos el color de fondo cuando el checkbox esta activado */
   input:checked + .slider {
-    background-color: #E27AD8;
+    background-color: #35944b !important;
   }
    
   /* Deslizamos el slider a la derecha cuando el checkbox esta activado */ 
@@ -60,7 +60,7 @@
 
 
   /*Tema de telefono*/
-  * {
+  /* * {
     margin:0px;
     padding:0px;
 }
@@ -108,7 +108,7 @@ ul, ol {
 .nav li ul li ul {
     right:-140px;
     top:0px;
-}
+} */
 
 /* Estilos para el switch  DARKMODE*/
 .switch {
