@@ -1,15 +1,19 @@
-class Registro{
+class Registro {
     
   constructor(
       public Name: string,
       public lastNameOne: string,
+      public lastNameTwo: string,
+      public phone: string,
+      public date: string,
       public email: string,
-      public Input: string,
-      public lastNameTwo?: string,
+      public password: string,
+      public passwordRepeat: string,
   ) {}
 
   toString(): string {
-      return `Name: ${this.Name}\nlastNameOne: ${this.lastNameOne}\nlastNameTwo: ${this.lastNameTwo}\nEmail: ${this.email}\nPassword: ${this.Input}`;
+      let result = `Name: ${this.Name}\nlastNameOne: ${this.lastNameOne}\nlastNameTwo: ${this.lastNameTwo}\nPhone: ${this.phone}\nDate: ${this.date}\nEmail: ${this.email}\nPassword: ${this.password}\nPassword Repeat: ${this.passwordRepeat}`;
+      return result;
   }
 
 }
@@ -129,16 +133,20 @@ function generateRandomPassword(): string {
 //MEtodo que registra el usuario.
 function registrar() {
   const nombre = (document.getElementById('Name') as HTMLInputElement).value;
-  const apellido = (document.getElementById('lastNameOne') as HTMLInputElement).value;
-  const email = (document.getElementById('email') as HTMLInputElement).value;
-  const contraseña = (document.getElementById('Input') as HTMLInputElement).value;
+  const apellido1 = (document.getElementById('lastNameOne') as HTMLInputElement).value;
   const apellido2 = (document.getElementById('lastNameTwo') as HTMLInputElement).value;
+  const telefono = (document.getElementById('phone') as HTMLInputElement).value;
+  const fecha = (document.getElementById('date') as HTMLInputElement).value;
+  const email = (document.getElementById('email') as HTMLInputElement).value;
+  const contrasena = (document.getElementById('Input') as HTMLInputElement).value;
+  const contrasenaRepetida = (document.getElementById('passwordRepeat') as HTMLInputElement).value;
 
-  const registro = new Registro(nombre, apellido, email, contraseña, apellido2);
+  const registro = new Registro(nombre, apellido1, apellido2, telefono, fecha, email, contrasena, contrasenaRepetida);
   const modelo = document.getElementById('error') as HTMLParagraphElement;
-  const mostrar:string = registro.toString();
-  modelo.innerHTML = mostrar; // Aquí estaba el error. Deberías asignar 'mostrar' a 'modelo.innerHTML', no al revés.
+  const mostrar: string = registro.toString();
+  modelo.innerHTML = mostrar;
 }
+
 
 
 //TELEFONO 

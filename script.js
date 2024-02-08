@@ -1,16 +1,22 @@
-var Registro = /** @class */ (function () {
-    function Registro(Name, lastNameOne, email, Input, lastNameTwo) {
-        this.Name = Name;
-        this.lastNameOne = lastNameOne;
-        this.email = email;
-        this.Input = Input;
-        this.lastNameTwo = lastNameTwo;
-    }
-    Registro.prototype.toString = function () {
-        return "Name: ".concat(this.Name, "\nlastNameOne: ").concat(this.lastNameOne, "\nlastNameTwo: ").concat(this.lastNameTwo, "\nEmail: ").concat(this.email, "\nPassword: ").concat(this.Input);
-    };
-    return Registro;
-}());
+"use strict";
+// class Registro {
+Object.defineProperty(exports, "__esModule", { value: true });
+//   constructor(
+//       public Name: string,
+//       public lastNameOne: string,
+//       public lastNameTwo: string,
+//       public phone: string,
+//       public date: string,
+//       public email: string,
+//       public password: string,
+//       public passwordRepeat: string,
+//   ) {}
+//   toString(): string {
+//       let result = `Name: ${this.Name}\nlastNameOne: ${this.lastNameOne}\nlastNameTwo: ${this.lastNameTwo}\nPhone: ${this.phone}\nDate: ${this.date}\nEmail: ${this.email}\nPassword: ${this.password}\nPassword Repeat: ${this.passwordRepeat}`;
+//       return result;
+//   }
+// }
+var Registro_1 = require("./model/Registro");
 var eye = document.getElementById('Eye');
 var input = document.getElementById('Input');
 eye.addEventListener("click", function () {
@@ -86,12 +92,6 @@ darkModeToggle.addEventListener('change', function () {
         disableDarkMode();
     }
 });
-function setPrefix(prefix) {
-    var phonePrefixInput = document.getElementById('phonePrefix');
-    if (phonePrefixInput) {
-        phonePrefixInput.value = prefix;
-    }
-}
 //Generar Contrasena
 function generatePassword() {
     var passwordField = document.getElementById('Input');
@@ -108,20 +108,22 @@ function generateRandomPassword() {
     }
     return blocks.join('-');
 }
+//MEtodo que registra el usuario.
 function registrar() {
     var nombre = document.getElementById('Name').value;
-    var apellido = document.getElementById('lastNameOne').value;
-    var email = document.getElementById('email').value;
-    var contraseña = document.getElementById('Input').value;
+    var apellido1 = document.getElementById('lastNameOne').value;
     var apellido2 = document.getElementById('lastNameTwo').value;
-    var registro = new Registro(nombre, apellido, email, contraseña, apellido2);
+    var telefono = document.getElementById('phone').value;
+    var fecha = document.getElementById('date').value;
+    var email = document.getElementById('email').value;
+    var contrasena = document.getElementById('Input').value;
+    var contrasenaRepetida = document.getElementById('passwordRepeat').value;
+    var registro = new Registro_1.Registro(nombre, apellido1, apellido2, telefono, fecha, email, contrasena, contrasenaRepetida);
     var modelo = document.getElementById('error');
     var mostrar = registro.toString();
-    modelo.innerHTML = mostrar; // Aquí estaba el error. Deberías asignar 'mostrar' a 'modelo.innerHTML', no al revés.
+    modelo.innerHTML = mostrar;
 }
 //TELEFONO 
-// Inicializa el campo de entrada del teléfono con intl-tel-input
-// Inicializa el campo de entrada del teléfono con intl-tel-input
 // Inicializa el campo de entrada del teléfono con intl-tel-input
 var phoneInputField = document.querySelector("#phone");
 if (phoneInputField) { // Asegúrate de que phoneInputField no es null
