@@ -11,26 +11,6 @@ var Registro = /** @class */ (function () {
     };
     return Registro;
 }());
-// // Espera a que el DOM esté completamente cargado
-// $(document).ready(function () {
-//     // Utiliza .on() para delegación de eventos
-//     $('#thumbs').on('click', 'img', function() {
-//         const $this = $(this);
-// import { Registro } from "./model/Registro";
-// import { Registro } from "./model/Registro";
-//         // Limpia el formato
-//         $('#thumbs img').removeClass('border-highlight');
-//         // Destaca con un borde coloreado
-//         $this.addClass('border-highlight');
-//         // Obtiene el valor del atributo 'id'
-//         const idAttribute = $this.attr('id');
-//         // Verifica si 'idAttribute' no es undefined antes de usarlo
-//         if (idAttribute !== undefined) {
-//             // Cambia el valor del campo del formulario "prod" al valor de img.id
-//             $('[name="prod"]').val(idAttribute.substring(idAttribute.lastIndexOf('-') + 1));
-//         }
-//     });
-// });
 var eye = document.getElementById('Eye');
 var input = document.getElementById('Input');
 eye.addEventListener("click", function () {
@@ -138,4 +118,21 @@ function registrar() {
     var modelo = document.getElementById('error');
     var mostrar = registro.toString();
     modelo.innerHTML = mostrar; // Aquí estaba el error. Deberías asignar 'mostrar' a 'modelo.innerHTML', no al revés.
+}
+//TELEFONO 
+// Inicializa el campo de entrada del teléfono con intl-tel-input
+// Inicializa el campo de entrada del teléfono con intl-tel-input
+// Inicializa el campo de entrada del teléfono con intl-tel-input
+var phoneInputField = document.querySelector("#phone");
+if (phoneInputField) { // Asegúrate de que phoneInputField no es null
+    var iti_1 = globalThis.intlTelInput(phoneInputField, {
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    });
+    // Añade un oyente de eventos para el evento 'countrychange'
+    phoneInputField.addEventListener('countrychange', function () {
+        // Obtiene el código del país seleccionado
+        var countryCode = iti_1.getSelectedCountryData().dialCode;
+        // Establece el valor del campo de entrada del teléfono al código del país
+        phoneInputField.value = '+' + countryCode;
+    });
 }
