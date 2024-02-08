@@ -1,22 +1,20 @@
-"use strict";
-// class Registro {
-Object.defineProperty(exports, "__esModule", { value: true });
-//   constructor(
-//       public Name: string,
-//       public lastNameOne: string,
-//       public lastNameTwo: string,
-//       public phone: string,
-//       public date: string,
-//       public email: string,
-//       public password: string,
-//       public passwordRepeat: string,
-//   ) {}
-//   toString(): string {
-//       let result = `Name: ${this.Name}\nlastNameOne: ${this.lastNameOne}\nlastNameTwo: ${this.lastNameTwo}\nPhone: ${this.phone}\nDate: ${this.date}\nEmail: ${this.email}\nPassword: ${this.password}\nPassword Repeat: ${this.passwordRepeat}`;
-//       return result;
-//   }
-// }
-var Registro_1 = require("./model/Registro");
+var Registro = /** @class */ (function () {
+    function Registro(Name, lastNameOne, lastNameTwo, phone, date, email, password, passwordRepeat) {
+        this.Name = Name;
+        this.lastNameOne = lastNameOne;
+        this.lastNameTwo = lastNameTwo;
+        this.phone = phone;
+        this.date = date;
+        this.email = email;
+        this.password = password;
+        this.passwordRepeat = passwordRepeat;
+    }
+    Registro.prototype.toString = function () {
+        var result = "Name: ".concat(this.Name, "\nlastNameOne: ").concat(this.lastNameOne, "\nlastNameTwo: ").concat(this.lastNameTwo, "\nPhone: ").concat(this.phone, "\nDate: ").concat(this.date, "\nEmail: ").concat(this.email, "\nPassword: ").concat(this.password, "\nPassword Repeat: ").concat(this.passwordRepeat);
+        return result;
+    };
+    return Registro;
+}());
 var eye = document.getElementById('Eye');
 var input = document.getElementById('Input');
 eye.addEventListener("click", function () {
@@ -118,7 +116,7 @@ function registrar() {
     var email = document.getElementById('email').value;
     var contrasena = document.getElementById('Input').value;
     var contrasenaRepetida = document.getElementById('passwordRepeat').value;
-    var registro = new Registro_1.Registro(nombre, apellido1, apellido2, telefono, fecha, email, contrasena, contrasenaRepetida);
+    var registro = new Registro(nombre, apellido1, apellido2, telefono, fecha, email, contrasena, contrasenaRepetida);
     var modelo = document.getElementById('error');
     var mostrar = registro.toString();
     modelo.innerHTML = mostrar;
