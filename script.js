@@ -1,11 +1,23 @@
-"use strict";
+var Registro = /** @class */ (function () {
+    function Registro(Name, lastNameOne, email, Input, lastNameTwo) {
+        this.Name = Name;
+        this.lastNameOne = lastNameOne;
+        this.email = email;
+        this.Input = Input;
+        this.lastNameTwo = lastNameTwo;
+    }
+    Registro.prototype.toString = function () {
+        return "Name: ".concat(this.Name, "\nlastNameOne: ").concat(this.lastNameOne, "\nlastNameTwo: ").concat(this.lastNameTwo, "\nEmail: ").concat(this.email, "\nPassword: ").concat(this.Input);
+    };
+    return Registro;
+}());
 // // Espera a que el DOM esté completamente cargado
 // $(document).ready(function () {
 //     // Utiliza .on() para delegación de eventos
 //     $('#thumbs').on('click', 'img', function() {
 //         const $this = $(this);
-Object.defineProperty(exports, "__esModule", { value: true });
-var Registro_1 = require("./model/Registro");
+// import { Registro } from "./model/Registro";
+// import { Registro } from "./model/Registro";
 //         // Limpia el formato
 //         $('#thumbs img').removeClass('border-highlight');
 //         // Destaca con un borde coloreado
@@ -111,6 +123,9 @@ function registrar() {
     var apellido = document.getElementById('lastNameOne').value;
     var email = document.getElementById('email').value;
     var contraseña = document.getElementById('Input').value;
-    var registro = new Registro_1.Registro(nombre, apellido, email, contraseña);
-    console.log(registro.toString());
+    var apellido2 = document.getElementById('lastNameTwo').value;
+    var registro = new Registro(nombre, apellido, email, contraseña, apellido2);
+    var modelo = document.getElementById('error');
+    var mostrar = registro.toString();
+    modelo.innerHTML = mostrar; // Aquí estaba el error. Deberías asignar 'mostrar' a 'modelo.innerHTML', no al revés.
 }

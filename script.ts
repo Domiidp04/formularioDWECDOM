@@ -1,10 +1,28 @@
+class Registro{
+    
+  constructor(
+      public Name: string,
+      public lastNameOne: string,
+      public email: string,
+      public Input: string,
+      public lastNameTwo?: string,
+  ) {}
+
+  toString(): string {
+      return `Name: ${this.Name}\nlastNameOne: ${this.lastNameOne}\nlastNameTwo: ${this.lastNameTwo}\nEmail: ${this.email}\nPassword: ${this.Input}`;
+  }
+
+}
+
 // // Espera a que el DOM esté completamente cargado
 // $(document).ready(function () {
 //     // Utiliza .on() para delegación de eventos
 //     $('#thumbs').on('click', 'img', function() {
 //         const $this = $(this);
 
-import { Registro } from "./model/Registro";
+// import { Registro } from "./model/Registro";
+
+// import { Registro } from "./model/Registro";
 
 //         // Limpia el formato
 //         $('#thumbs img').removeClass('border-highlight');
@@ -135,7 +153,11 @@ function registrar() {
   const apellido = (document.getElementById('lastNameOne') as HTMLInputElement).value;
   const email = (document.getElementById('email') as HTMLInputElement).value;
   const contraseña = (document.getElementById('Input') as HTMLInputElement).value;
+  const apellido2 = (document.getElementById('lastNameTwo') as HTMLInputElement).value;
 
-  const registro = new Registro(nombre, apellido, email, contraseña);
-  console.log(registro.toString());
+  const registro = new Registro(nombre, apellido, email, contraseña, apellido2);
+  const modelo = document.getElementById('error') as HTMLParagraphElement;
+  const mostrar:string = registro.toString();
+  modelo.innerHTML = mostrar; // Aquí estaba el error. Deberías asignar 'mostrar' a 'modelo.innerHTML', no al revés.
 }
+
